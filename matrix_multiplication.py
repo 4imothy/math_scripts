@@ -1,9 +1,8 @@
 import sys
 # Program to multiply two matrices using nested loopsO
-errorMessage = "Not Enough Parameters"
 
 if len(sys.argv) < 3:
-    print(f'\033[91m{errorMessage}\033[0m')
+    print(f'\033[91mNot Enough Parameters\033[0m')
     exit()
 
 A = [];
