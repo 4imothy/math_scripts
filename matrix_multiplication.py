@@ -1,14 +1,10 @@
-import sys
-# Program to multiply two matrices using nested loopsO
-
-if len(sys.argv) < 3:
-    print(f'\033[91mNot Enough Parameters\033[0m')
-    exit()
-
-A = [];
-
-for i in sys.argv[1]:
-    print(i)
+def prCyan(skk): print("\033[96m {}\033[00m" .format(skk))
+# Program to multiply two matrices using nested loops
+prCyan("hello")
+# take a 3x3 matrix
+A = [[12, 7, 3],
+    [4, 5, 6],
+    [7, 8, 9]]
 
 # take a 3x4 matrix
 B = [[5, 8, 1, 2],
@@ -31,3 +27,4 @@ for i in range(len(A)):
 
 for r in result:
     print(r)
+
