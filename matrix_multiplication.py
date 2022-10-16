@@ -32,16 +32,10 @@ except:
 print("B: ")
 prLightGray(B)
 
-result = []
-# iterating by row of A
-for i in range(len(A)):
+C = np.zeros((A.shape[0],B.shape[1]),dtype = int)
+for row in range(len(A)):
+    for col in range(len(B[0])):
+        for elt in range(len(B)):
+            C[row, col] += A[row, elt] * B[elt, col]
 
-    # iterating by column by B
-    for j in range(len(B[0])):
-
-        # iterating by rows of B
-        for k in range(len(B)):
-            result[i][j] += A[i][k] * B[k][j]
-
-for r in result:
-    print(r)
+prPurple(C)
