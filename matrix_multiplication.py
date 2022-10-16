@@ -1,4 +1,3 @@
-def prCyan(skk): print("\033[96m {}\033[00m" .format(skk))
 # Program to multiply two matrices using nested loops
 prCyan("hello")
 # take a 3x3 matrix
