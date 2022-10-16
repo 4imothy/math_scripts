@@ -1,19 +1,38 @@
-# Program to multiply two matrices using nested loops
-prCyan("hello")
-# take a 3x3 matrix
-A = [[12, 7, 3],
-    [4, 5, 6],
-    [7, 8, 9]]
+from Printing import *
+import numpy as np
 
-# take a 3x4 matrix
-B = [[5, 8, 1, 2],
-    [6, 7, 3, 0],
-    [4, 5, 9, 1]]
+# get matrix A
+prLightPurple("Matrix A")
+RA = int(input("Enter the number of rows: "))
+CA = int(input("Enter the number of columns: "))
+prCyan("Enter the entries in a single line (separated by space): ")
+entriesA = list(map(int, input().split()))
+try:
+    A = np.array(entriesA).reshape(RA, CA)
+except:
+    prRed("A is not properly formatted")
+    exit()
+print("A: ")
+prLightGray(A)
 
-result = [[0, 0, 0, 0],
-        [0, 0, 0, 0],
-        [0, 0, 0, 0]]
+# set matrix B
+prLightPurple("Matrix B")
+RB = int(input("Enter the number of rows: "))
+if CA != RB:
+    prRed("# Columns of A ≠ # Rows Of B")
+    exit()
+CB = int(input("Enter the number of columns: "))
+prCyan("Enter the entries in a single line (separated by space): ")
+entriesB = list(map(int, input().split()))
+try:
+    B = np.array(entriesB).reshape(RB, CB)
+except:
+    prRed("B is not properly formatted")
+    exit()
+print("B: ")
+prLightGray(B)
 
+result = []
 # iterating by row of A
 for i in range(len(A)):
 
@@ -26,4 +45,3 @@ for i in range(len(A)):
 
 for r in result:
     print(r)
-
