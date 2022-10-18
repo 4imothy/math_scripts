@@ -12,9 +12,10 @@ try:
 except:
     prRed("A is not properly formatted")
     exit()
-print("A: ")
+prLightPurple("A: ")
 prLightGray(A)
 
+print("----------")
 # set matrix B
 prLightPurple("Matrix B")
 RB = int(input("Enter the number of rows: "))
@@ -29,7 +30,7 @@ try:
 except:
     prRed("B is not properly formatted")
     exit()
-print("B: ")
+prLightPurple("B: ")
 prLightGray(B)
 
 C = np.zeros((A.shape[0],B.shape[1]),dtype = int)
@@ -38,4 +39,6 @@ for row in range(len(A)):
         for elt in range(len(B)):
             C[row, col] += A[row, elt] * B[elt, col]
 
-prPurple(C)
+print("----------")
+prPurple("Answer:")
+prLightGray(C)
