@@ -3,18 +3,17 @@ import numpy as np
 
 def gatherData(name):
     prLightPurple("Matrix " + name)
-    numRow = int(input("Enter the number of rows: "))
-    numCol = int(input("Enter the number of columns: "))
-    prCyan("Enter the entries in a single line (separated by space): ")
+    numRow = int(input(makeCyan("Enter the number of rows: ")))
+    numCol = int(input(makeCyan("Enter the number of columns: ")))
     try:
-        entries = list(map(int, input().split()))
+        entries = list(map(int, input(makeCyan("Entries (seperated by a space): ")).split()))
         matrix = np.array(entries).reshape(numRow, numCol)
     except:
         prRed(name + " is not properly formatted")
         exit()
     prLightPurple(name + ": ")
     prLightGray(matrix)
-    print("----------")
+    print("------------")
     return matrix
 
 A = gatherData("A")
@@ -29,7 +28,6 @@ for row in range(len(A)):
     for col in range(len(B[0])):
         for elt in range(len(B)):
             C[row, col] += A[row, elt] * B[elt, col]
-
 
 prPurple("Answer:")
 prLightGray(C)
