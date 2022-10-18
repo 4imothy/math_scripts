@@ -13,7 +13,7 @@ def gatherData(name):
         exit()
     prLightPurple(name + ": ")
     prLightGray(matrix)
-    print("------------")
+    prYellow("------------")
     return matrix
 
 A = gatherData("A")
