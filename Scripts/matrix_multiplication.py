@@ -24,15 +24,19 @@ def multiply(A,B):
 
 def gatherData(name):
     prLightPurple("Matrix " + name)
-    numRow = int(input(makeCyan("Enter the number of rows: ")))
-    numCol = int(input(makeCyan("Enter the number of columns: ")))
+    try:
+        numRow = int(input(makeCyan("Enter the number of rows: ")))
+        numCol = int(input(makeCyan("Enter the number of columns: ")))
+    except:
+        prRed("That is not a number")
+        exit()
     try:
         entries = list(map(np.double, input(makeCyan("Entries (seperated by a space): ")).split()))
         matrix = np.array(entries).reshape(numRow, numCol)
     except:
         prRed(name + " is not properly formatted")
         exit()
-    prLightPurple(name + ": ")
+    prLightPurple(name + "=")
     prLightGray(matrix)
     prYellow("------------")
     return matrix
