@@ -1,6 +1,23 @@
 from Printing import *
 import numpy as np
 
+def main():
+    A = gatherData("A")
+    B = gatherData("B")
+    if A.shape[1] != B.shape[0]:
+        prRed("# Columns of A ≠ # Rows of B")
+        exit()
+
+    C = np.zeros((A.shape[0],B.shape[1]),dtype = np.double)
+
+    for row in range(len(A)):
+        for col in range(len(B[0])):
+            for elt in range(len(B)):
+                C[row, col] += A[row, elt] * B[elt, col]
+
+    prPurple("Answer:")
+    prLightGray(C)
+
 def gatherData(name):
     prLightPurple("Matrix " + name)
     numRow = int(input(makeCyan("Enter the number of rows: ")))
@@ -16,18 +33,5 @@ def gatherData(name):
     prYellow("------------")
     return matrix
 
-A = gatherData("A")
-B = gatherData("B")
-if A.shape[1] != B.shape[0]:
-        prRed("# Columns of A ≠ # Rows of B")
-        exit()
-
-C = np.zeros((A.shape[0],B.shape[1]),dtype = np.double)
-
-for row in range(len(A)):
-    for col in range(len(B[0])):
-        for elt in range(len(B)):
-            C[row, col] += A[row, elt] * B[elt, col]
-
-prPurple("Answer:")
-prLightGray(C)
+if __name__=="__main__":
+    main()
