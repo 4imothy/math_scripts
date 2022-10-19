@@ -8,15 +8,19 @@ def main():
         prRed("# Columns of A ≠ # Rows of B")
         exit()
 
-    C = np.zeros((A.shape[0],B.shape[1]),dtype = np.double)
+    ans = multiply(A,B)
+    prPurple("Answer:")
+    prLightGray(ans)
 
+def multiply(A,B):
+
+    C = np.zeros((A.shape[0],B.shape[1]),dtype = np.double)
     for row in range(len(A)):
         for col in range(len(B[0])):
             for elt in range(len(B)):
                 C[row, col] += A[row, elt] * B[elt, col]
 
-    prPurple("Answer:")
-    prLightGray(C)
+    return C
 
 def gatherData(name):
     prLightPurple("Matrix " + name)
