@@ -6,7 +6,7 @@ def gatherData(name):
     numRow = int(input(makeCyan("Enter the number of rows: ")))
     numCol = int(input(makeCyan("Enter the number of columns: ")))
     try:
-        entries = list(map(int, input(makeCyan("Entries (seperated by a space): ")).split()))
+        entries = list(map(np.double, input(makeCyan("Entries (seperated by a space): ")).split()))
         matrix = np.array(entries).reshape(numRow, numCol)
     except:
         prRed(name + " is not properly formatted")
@@ -22,7 +22,7 @@ if A.shape[1] != B.shape[0]:
         prRed("# Columns of A ≠ # Rows of B")
         exit()
 
-C = np.zeros((A.shape[0],B.shape[1]),dtype = int)
+C = np.zeros((A.shape[0],B.shape[1]),dtype = np.double)
 
 for row in range(len(A)):
     for col in range(len(B[0])):
