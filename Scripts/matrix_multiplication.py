@@ -9,7 +9,7 @@ def main():
         prRed("# Columns of A ≠ # Rows of B")
         exit()
 
-    ans = multiply(A,B)
+    ans = strassen(A,B)
     prPurple("Answer:")
     prLightGray(ans)
 
@@ -37,7 +37,7 @@ def gatherData(name):
     except:
         prRed(name + " is not properly formatted")
         exit()
-    prLightPurple(name + "=")
+    prPurple(name + "=")
     prLightGray(matrix)
     prYellow("------------")
     return matrix
