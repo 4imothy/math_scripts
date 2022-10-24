@@ -1,4 +1,5 @@
 from Printing import *
+from Strassen import strassen
 import numpy as np
 
 def main():
@@ -23,7 +24,7 @@ def multiply(A,B):
     return C
 
 def gatherData(name):
-    prLightPurple("Matrix " + name)
+    prPurple("Matrix " + name)
     try:
         numRow = int(input(makeCyan("Enter the number of rows: ")))
         numCol = int(input(makeCyan("Enter the number of columns: ")))
