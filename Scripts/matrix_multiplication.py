@@ -1,6 +1,7 @@
 from Printing import *
 from Strassen import strassen
 import numpy as np
+import math
 
 def main():
     A = gatherData("A")
@@ -8,6 +9,10 @@ def main():
     if A.shape[1] != B.shape[0]:
         prRed("# Columns of A ≠ # Rows of B")
         exit()
+
+    # check if matrices match the strassen constraints
+    if isPowerOfTwo(A.shape[1]) and isPowerOfTwo(B.shape[1]) and A.shape[1]==A.shape[0] and B.shape[1]==B.shape[0]:
+        print("can use strassen")
 
     ans = strassen(A,B)
     prPurple("Answer:")
@@ -42,5 +47,12 @@ def gatherData(name):
     prYellow("------------")
     return matrix
 
+def isPowerOfTwo(num):
+    if math.log(num,2).is_integer():
+        return True
+    else:
+        return False
+
 if __name__=="__main__":
     main()
+
