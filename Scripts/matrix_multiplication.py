@@ -12,13 +12,16 @@ def main():
 
     # check if matrices match the strassen constraints
     if isPowerOfTwo(A.shape[1]) and isPowerOfTwo(B.shape[1]) and A.shape[1]==A.shape[0] and B.shape[1]==B.shape[0]:
-        print("Using Strassen")
-        ans = strassen(A,B)
+        prYellow("Using Strassen")
+        ans = strassen(A.shape[0],A,B)
+        p = np.matrix([l[0] for l in ans])
+        p = np.asarray(ans)
+        prPurple("Answer:")
+        prLightGray(p)
     else:
         ans = multiply(A,B)
-
-    prPurple("Answer:")
-    prLightGray(ans)
+        prPurple("Answer:")
+        prLightGray(ans)
 
 def multiply(A,B):
 

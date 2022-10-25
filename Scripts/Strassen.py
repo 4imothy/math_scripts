@@ -1,65 +1,45 @@
-import numpy as np
-
-def strassen(X, Y):
-  if len(X) == 1:
-    return [[X[0][0] * Y[0][0]]]
-  else:
-    A, B, C, D = divide_matrix(X)
-    E, F, G, H = divide_matrix(Y)
-
-    P1 = strassen(A, sub_matrix(F,H))
-    P2 = strassen(add_matrix(A, B), H)
-    P3 = strassen(add_matrix(C, D), E)
-    P4 = strassen(D, sub_matrix(G, E))
-    P5 = strassen(add_matrix(A, D), add_matrix(E, H))
-    P6 = strassen(sub_matrix(B, D), add_matrix(G, H))
-    P7 = strassen(sub_matrix(A, C), add_matrix(E, F))
-
-    Z11 = add_matrix(sub_matrix(add_matrix(P5, P4), P2), P6)
-    Z12 = add_matrix(P1, P2)
-    Z21 = add_matrix(P3, P4)
-    Z22 = sub_matrix(sub_matrix(add_matrix(P5, P1), P3), P7)
+def submatrices(n, matrix): # dividing matrix for pieces
+    A = [[j for j in matrix[i][:int(n / 2)]] for i in range(int(n / 2))]
+    B = [[j for j in matrix[i][int(n / 2):]] for i in range(int(n / 2))]
+    C = [[j for j in matrix[i][:int(n / 2)]] for i in range(int(n / 2), n)]
+    D = [[j for j in matrix[i][int(n / 2):]] for i in range(int(n / 2), n)]
+    return [A, B, C, D]
 
 
-    return np.matrix(merge_matrix(Z11, Z12, Z21, Z22))
+def addition(n, matrix1, matrix2):  # just addition
+    res = [[matrix1[i][j] + matrix2[i][j] for j in range(n)] for i in range(n)]
+    return res
 
-def sub_matrix(X, Y):
-  n = len(X)
-  if n == 1:
-    return [[X[0][0] - Y[0][0]]]
-  S = []
-  for i in range(n):
-    S.append([])
-    for j in range(n):
-      S[i].append(X[i][j] - Y[i][j])
-  return S
+def subtraction(n, matrix1, matrix2):   # just substraction
+    res = [[matrix1[i][j] - matrix2[i][j] for j in range(n)] for i in range(n)]
+    return res
 
-def add_matrix(X, Y):
-  n = len(X)
-  if n == 1:
-    return [[X[0][0] + Y[0][0]]]
-  S = []
-  for i in range(n):
-    S.append([])
-    for j in range(n):
-      S[i].append(X[i][j] + Y[i][j])
-  return S
+def strassen(n, matrix1, matrix2):
 
-def merge_matrix(matrix_11, matrix_12, matrix_21, matrix_22):
-  matrix_total = []
-  rows1 = len(matrix_11)
-  rows2 = len(matrix_21)
-  for i in range(rows1):
-    matrix_total.append(matrix_11[i] + matrix_12[i])
-  for j in range(rows2):
-    matrix_total.append(matrix_21[j] + matrix_22[j])
-  return matrix_total
+    if n == 2:  # the last step of algorithm is just standart multiplycation
+        xy = [[0] * n for i in range(n)]
+        for i in range(n):
+            for j in range(n):
+                for x in range(n):
+                    xy[i][j] += matrix1[i][x] * matrix2[x][j]
+    else:
+        A, B, C, D = submatrices(n, matrix1)    # divide the original matrix1
+        E, F, G, H = submatrices(n, matrix2)    # divide the original matrix2
 
-def divide_matrix(A):
-  mid = len(A)//2
-  m_11 = [M[:mid] for M in A[:mid]]
-  m_12 = [M[mid:] for M in A[:mid]]
-  m_21 = [M[:mid] for M in A[mid:]]
-  m_22 = [M[mid:] for M in A[mid:]]
+        n = int(n / 2)  # the matrix size is changed now
 
-  return (m_11, m_12, m_21, m_22)
+        p1 = strassen(n, A, subtraction(n, F, H))
+        p2 = strassen(n, addition(n, A, B), H)
+        p3 = strassen(n, addition(n, C, D), E)
+        p4 = strassen(n, D, subtraction(n, G, E))
+        p5 = strassen(n, addition(n, A, D), addition(n, E, H))
+        p6 = strassen(n, subtraction(n, B, D), addition(n, G, H))
+        p7 = strassen(n, subtraction(n, A, C), addition(n, E, F))
+
+        xy1 = addition(n, addition(n, p5, p6), subtraction(n, p4, p2))  # making new blocks of matrix
+        xy2 = addition(n, p1, p2)
+        xy3 = addition(n, p3, p4)
+        xy4 = subtraction(n, addition(n, p1, p5), addition(n, p3, p7))
+
+        xy = [xy1[i] + xy2[i] for i in range(n)] + [xy3[i] + xy4[i] for i in range(n)]  # assembling a matrix of blocks
+    return xy
