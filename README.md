@@ -10,3 +10,4 @@ python3 script_name.py
 ###### Using
 - Python3
 - Numpy
+- Scipy
