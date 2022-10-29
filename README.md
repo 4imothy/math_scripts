@@ -7,7 +7,8 @@ Collection of python scripts to run from command line.
 python3 script_name.py
 ```
 
-###### Packages
+#### Language
 - Python3
+#### Packages
 - Numpy
 - Scipy
