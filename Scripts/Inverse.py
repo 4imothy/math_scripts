@@ -2,7 +2,11 @@ from Printing import *
 import numpy as np
 
 def main():
-    gatherData("A")
+    M = gatherData("Matrix")
+    # create identity matrix to operate on
+    Inv = invert_matrix(M, np.identity(M.shape[1]))
+    prPurple("Inverse Matrix=")
+    prLightGray(Inv)
 
 def invert_matrix(AM, IM):
     for fd in range(len(AM)):
@@ -22,6 +26,9 @@ def gatherData(name):
     try:
         numRow = int(input(makeCyan("Enter the number of rows: ")))
         numCol = int(input(makeCyan("Enter the number of columns: ")))
+        if numRow != numCol:
+            prRed("Matrix Is Not Square")
+            exit()
     except:
         prRed("That is not a number")
         exit()
