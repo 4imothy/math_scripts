@@ -4,11 +4,11 @@ import numpy as np
 def main():
     M = gatherData("Matrix")
     # create identity matrix to operate on
-    Inv = invert_matrix(M, np.identity(M.shape[1]))
+    Inv = invertMatrix(M, np.identity(M.shape[1]))
     prPurple("Inverse Matrix=")
     prLightGray(Inv)
 
-def invert_matrix(AM, IM):
+def invertMatrix(AM, IM):
     for fd in range(len(AM)):
         fdScaler = 1.0 / AM[fd][fd]
         for j in range(len(AM)):
