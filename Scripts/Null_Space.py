@@ -4,8 +4,8 @@ import numpy as np
 
 def main():
     m = gatherData("Matrix")
-    print("Nullspace")
-    print(null_space(m))
+    prPurple("Nullspace=")
+    prLightGray(null_space(m))
 
 def gatherData(name):
     prPurple("Matrix " + name)
