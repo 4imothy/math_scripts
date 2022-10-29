@@ -5,7 +5,11 @@ def main():
     M = gatherData("Matrix")
     # create identity matrix to operate on
     Inv = invertMatrix(M, np.identity(M.shape[1]))
-    prPurple("Inverse Matrix=")
+    try:
+        prPurple("Inverse Matrix=")
+    except:
+        prRed("Not Invertible")
+        exit()
     prLightGray(Inv)
 
 def invertMatrix(AM, IM):
