@@ -18,7 +18,7 @@ def main():
         p = np.asarray(ans)
         prPurple("Answer:")
         prLightGray(p)
-    else:
+    else: #use the other method
         ans = multiply(A,B)
         prPurple("Answer:")
         prLightGray(ans)
