@@ -15,6 +15,9 @@ def gatherData(name):
     except:
         prRed("That is not a number")
         exit()
+    if numRow != numCol:
+        prRed("Not a square matrix")
+        exit()
     try:
         entries = list(map(np.double, input(makeCyan("Entries (seperated by a space): ")).split()))
         matrix = np.array(entries).reshape(numRow, numCol)
