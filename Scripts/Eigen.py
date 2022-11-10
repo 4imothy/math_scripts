@@ -13,8 +13,8 @@ def main():
     prPurple("The EigenVectors Are: ")
     prLightGray(v)
 
-def gatherData(name):
-    prPurple("Matrix " + name)
+def gatherData():
+    prPurple("Enter Matrix")
     try:
         numRow = int(input(makeCyan("Enter the number of rows: ")))
         numCol = int(input(makeCyan("Enter the number of columns: ")))
@@ -28,9 +28,9 @@ def gatherData(name):
         entries = list(map(np.double, input(makeCyan("Entries (seperated by a space): ")).split()))
         matrix = np.array(entries).reshape(numRow, numCol)
     except:
-        prRed(name + " is not properly formatted")
+        prRed("Matrix is not properly formatted")
         exit()
-    prPurple(name + "=")
+    prPurple("Matrix=")
     prLightGray(matrix)
     prYellow("------------")
     return matrix
