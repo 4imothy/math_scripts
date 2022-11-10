@@ -8,8 +8,10 @@ def main():
     except:
         prRed("Computation did not converge")
         exit()
-    print(w)
-    print(v)
+    prPurple("The EigenValues Are: ")
+    prLightGray(w)
+    prPurple("The EigenVectors Are: ")
+    prLightGray(v)
 
 def gatherData(name):
     prPurple("Matrix " + name)
