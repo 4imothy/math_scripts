@@ -4,14 +4,15 @@ import numpy as np
 def main():
     a = gatherData()
     try:
-        w, v = np.linalg.eig(a)
+        val, vec = np.linalg.eig(a)
     except:
         prRed("Computation did not converge")
         exit()
     prPurple("The EigenValues Are: ")
-    prLightGray(w)
+    prLightGray(', '.join(map(str, val)))
     prPurple("The EigenVectors Are: ")
-    prLightGray(v)
+    for i in range(0,len(vec[0])):
+        prLightGray(str(vec[:,i]) + ",")
 
 def gatherData():
     prPurple("Enter Matrix")
