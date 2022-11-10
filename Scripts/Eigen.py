@@ -3,7 +3,11 @@ import numpy as np
 
 def main():
     a = gatherData("Matrix")
-    w, v = np.linalg.eig(a)
+    try:
+        w, v = np.linalg.eig(a)
+    except:
+        prRed("Computation did not converge")
+        exit()
     print(w)
     print(v)
 
