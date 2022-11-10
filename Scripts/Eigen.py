@@ -12,7 +12,10 @@ def main():
     prLightGray(', '.join(map(str, val)))
     prPurple("The EigenVectors Are: ")
     for i in range(0,len(vec[0])):
-        prLightGray(str(vec[:,i]) + ",")
+        if i == len(vec[0])-1:
+            prLightGray(vec[:,i])
+        else:
+            prLightGray(str(vec[:,i]) + ",")
 
 def gatherData():
     prPurple("Enter Matrix")
