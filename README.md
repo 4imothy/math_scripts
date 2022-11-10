@@ -1,14 +1,21 @@
 # Math Scripts
 
-Collection of python scripts to run from command line.
+Collection of scripts to run from command line.
 
-**To Run**
+#### Scripts
+**Linear Algebra:**
+- find inverse matrix
+- find null space of a matrix
+- matrix multiplication
+- find eigenvectors and eigenvalues of a matrix
+
+### To Run
 ```
 python3 script_name.py
 ```
 
 #### Language
-- Python3
+- Python
 #### Packages
 - Numpy
 - Scipy
