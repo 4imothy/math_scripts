@@ -2,7 +2,7 @@ from Printing import *
 import numpy as np
 
 def main():
-    a = gatherData("Matrix")
+    a = gatherData()
     try:
         w, v = np.linalg.eig(a)
     except:
