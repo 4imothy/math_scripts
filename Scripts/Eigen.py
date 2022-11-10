@@ -36,7 +36,6 @@ def gatherData():
         exit()
     prPurple("Matrix=")
     prLightGray(matrix)
-    prYellow("------------")
     return matrix
 
 if __name__ == "__main__":
