@@ -8,7 +8,6 @@ def main():
     except:
         prPurple("The Determinant Is: 0")
         exit()
-
     prPurple("The Determinant Is: ")
     prLightGray(abs(det))
 
