@@ -1,5 +1,4 @@
 from Printing import *
-import numpy as np
 
 def main():
     A = gatherData()
@@ -49,14 +48,22 @@ def gatherData():
         prRed("Not a square matrix")
         exit()
     try:
-        entries = list(map(np.double, input(makeCyan("Entries (seperated by a space): ")).split()))
-        matrix = np.array(entries).reshape(numRow, numCol)
+        entries = list(map(float , input(makeCyan("Entries (seperated by a space): ")).split()))
+        matrix = reshape_list(entries,numRow)
     except:
         prRed("Matrix is not properly formatted")
         exit()
     prPurple("Matrix=")
-    prLightGray(matrix)
+    for i in range(0,len(matrix)):
+        prLightGray(matrix[i])
+
     return matrix
+
+def reshape_list(L, xsize, ysize=None, fillna=False):
+    gap = []
+    v, r = divmod(len(L),xsize)
+    gap = [None]*r
+    return list(map(list, zip(*[iter(L+gap)]*xsize)))
 
 if __name__ == "__main__":
     main()
