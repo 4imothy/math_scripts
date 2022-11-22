@@ -1,5 +1,4 @@
 from Printing import *
-import numpy as np
 
 def main():
     M = gatherData("Matrix")
