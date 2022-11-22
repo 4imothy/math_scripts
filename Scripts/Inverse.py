@@ -6,12 +6,12 @@ def main():
     # create identity matrix to operate on
     prPurple("Inverse Matrix=")
     try:
-        Inv = inverse(M)
+        inv = inverse(M)
     except:
         prRed("Not Invertible")
         exit()
-    for i in range(0,len(Inv)):
-        prLightGray(Inv[i])
+    for i in range(0,len(inv)):
+        prLightGray(inv[i])
 
 def eliminate(r1, r2, col, target=0):
     fac = (r2[col]-target) / r1[col]
@@ -26,7 +26,8 @@ def gauss(a):
                     a[i], a[j] = a[j], a[i]
                     break
             else:
-                raise ValueError("Matrix is not invertible")
+                prRed("Matrix is not invertible")
+                exit()
         for j in range(i+1, len(a)):
             eliminate(a[i], a[j], i)
     for i in range(len(a)-1, -1, -1):
