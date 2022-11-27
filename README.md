@@ -12,7 +12,7 @@ Collection of scripts to run from command line.
 
 ### To Run
 ```
-python3 script_name.py
+python3 Path_To_Script/script_name.py
 ```
 
 #### Language
