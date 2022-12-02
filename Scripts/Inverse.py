@@ -7,7 +7,7 @@ def main():
     try:
         inv = inverse(M)
     except:
-        prRed("Not Invertible")
+        prRed("Matrix is Not Invertible")
         exit()
     for i in range(0,len(inv)):
         prLightGray(inv[i])
