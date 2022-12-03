@@ -1,6 +1,6 @@
 # Math Scripts
 
-Collection of scripts to run from command line.
+Collection of math scripts to run from command line.
 
 #### Scripts
 **Linear Algebra:**
@@ -10,7 +10,7 @@ Collection of scripts to run from command line.
 - find eigenvectors and eigenvalues of a matrix
 - find the determinant of a matrix
 
-### To Run
+### To Run a Script
 ```
 python3 path_to_script/script_name.py
 ```
