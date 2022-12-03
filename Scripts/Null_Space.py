@@ -16,8 +16,8 @@ def gatherData(name):
         prRed("That is not a number")
         exit()
     try:
-        entries = list(map(float , input(makeCyan("Entries (seperated by a space): ")).split()))
-        matrix = reshape_list(entries,numRow)
+        entries = list(map(np.double, input(makeCyan("Entries (seperated by a space): ")).split()))
+        matrix = np.array(entries).reshape(numRow, numCol)
     except:
         prRed(name + " is not properly formatted")
         exit()
@@ -25,12 +25,6 @@ def gatherData(name):
     prLightGray(matrix)
     prYellow("------------")
     return matrix
-
-def reshape_list(L, xsize, ysize=None, fillna=False):
-    gap = []
-    v, r = divmod(len(L),xsize)
-    gap = [None]*r
-    return list(map(list, zip(*[iter(L+gap)]*xsize)))
 
 if __name__ == "__main__":
     main()
