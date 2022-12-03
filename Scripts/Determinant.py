@@ -8,7 +8,7 @@ def main():
         prPurple("The Determinant Is: 0")
         exit()
     prPurple("The Determinant Is: ")
-    prLightGray(abs(det))
+    prLightGray(det)
 
 def determinant(A):
     # Section 1: Establish n parameter and copy A
