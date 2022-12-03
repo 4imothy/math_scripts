@@ -26,14 +26,14 @@ def main():
     else: #use the other method
         ans = multiply(A,B, a_row, b_col)
         prPurple("Answer:")
-        prLightGray(ans)
+        print_matrix(ans)
 
 def multiply(A,B, a_row, b_col):
-    C = np.zeros((a_row,b_col),dtype = np.double)
+    C = [[0 for i in range(b_col)] for j in range(a_row)]
     for row in range(len(A)):
         for col in range(len(B[0])):
             for elt in range(len(B)):
-                C[row, col] += A[row][elt] * B[elt][col]
+                C[row][col] += A[row][elt] * B[elt][col]
 
     return C
 
