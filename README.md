@@ -19,6 +19,7 @@ git clone https://github.com/4tlc/math_scripts.git
 ```
 python3 path_to_script/script_name.py
 ```
+or add to PATH variable
 
 #### Language
 - Python

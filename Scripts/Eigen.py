@@ -1,3 +1,5 @@
+#! /usr/bin/env python3
+
 from Printing import *
 import numpy as np
 
