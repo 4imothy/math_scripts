@@ -16,11 +16,11 @@ Collection of math scripts to run from command line.
 git clone https://github.com/4tlc/math_scripts.git
 ```
 ### To Run a Script
+**Using python3**
 ```
 python3 path_to_script/script_name.py
 ```
-### or
-add to set executable with
+**or set executable with**
 ```
 chmod +x path_to_script/script_name.py
 ```
@@ -28,6 +28,8 @@ and run with
 ```
 ./script_name
 ```
+(extension is only necessary if the file has the extension)
+
 
 #### Language
 - Python
