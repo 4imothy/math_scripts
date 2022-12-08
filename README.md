@@ -9,6 +9,7 @@ Collection of math scripts to run from command line.
 - matrix multiplication
 - find eigenvectors and eigenvalues of a matrix
 - find the determinant of a matrix
+- find the rref of a matrix
 
 ### To Install
 ```
