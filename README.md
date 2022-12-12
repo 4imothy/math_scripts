@@ -26,9 +26,9 @@ chmod +x path_to_script/script_name.py
 ```
 and run with
 ```
-./script_name
+script_name
 ```
-(extension is only necessary if the file has the extension)
+after adding to path. (extension is only necessary if the file has the extension)
 
 
 #### Language
