@@ -1,6 +1,5 @@
 from Printing import *
 from Strassen import strassen
-import numpy as np
 import math
 
 def main():
@@ -19,10 +18,9 @@ def main():
     if isPowerOfTwo(a_col) and isPowerOfTwo(b_row) and a_col == a_row and b_col == b_row:
         prYellow("Using Strassen")
         ans = strassen(a_row,A,B)
-        p = np.matrix([l[0] for l in ans])
-        p = np.asarray(ans)
         prPurple("Answer:")
-        prLightGray(p)
+        # prLightGray(ans)
+        print_matrix(ans)
     else: #use the other method
         ans = multiply(A,B, a_row, b_col)
         prPurple("Answer:")
