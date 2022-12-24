@@ -9,7 +9,6 @@ def main():
 def gatherData(name):
     prPurple("Matrix " + name)
     try:
-        numRow = int(input(makeCyan("Enter the number of rows: ")))
         numCol = int(input(makeCyan("Enter the number of columns: ")))
     except:
         prRed("That is not a number")
