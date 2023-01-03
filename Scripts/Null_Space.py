@@ -26,7 +26,7 @@ def gatherData(name):
 
 def reshape_list(L, xsize):
     gap = []
-    v, r = divmod(len(L),xsize)
+    r = divmod(len(L),xsize)[1]
     gap = [None]*r
     return list(map(list, zip(*[iter(L+gap)]*xsize)))
 
